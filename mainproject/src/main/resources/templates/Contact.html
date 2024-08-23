@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <style>
+        table{
+            border: 5px solid navy;
+            padding: 10px;
+            border-collapse: separate;
+            border-spacing: 10px;
+
+        }
+        td{
+            border: 1px solid black;
+            padding: 5px;
+        }
+        input[type="submit"]:hover {
+    background-color: green; /* New color on hover */
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container-fluid " style="background-color: rgb(241, 240, 244);height: 70px;">
+            <nav >
+                <a th:href="@{/home}" style="color: #fff;margin-left: 80px;background-color:rgb(53,15,169);" class="btn btn-md ">Home</a>
+                <a href="about" style="color:#fff;margin-left: 20px;background-color:rgb(53,15,169);" class="btn btn-md">About Us</a>
+                <a href="" style="color: #fff;margin-left: 20px;background-color:rgb(53,15,169);" class="btn btn-md ">Login</a>
+                <img src="photo/logo.png" style="margin-left: 250px;" height="75px" width="75px">
+                <a th:href="@{/contact}" style="color: #fff;margin-left: 200px;background-color:rgb(53,15,169);" class="btn btn-md ">ContactUs</a>
+                <a th:href="@{/register}" style="color: #fff;margin-left: 20px;background-color:rgb(53,15,169);" class="btn btn-md ">Registeration</a>
+                <a th:href="@{/dashboard}" style="color: #fff;margin-left: 20px;background-color:rgb(53,15,169);" class="btn btn-md ">Dashboard</a>
+            </nav>
+        </div>
+    </header>
+    
+  <!--   <div style="background-color: rgb(53, 15, 169);"> --> 
+   
+<!--     <h1 style="font-size: 45px;font-weight: bolder;text-align: center;color:yellow;font-family:serif;">SCOPE INDIA is open 365 days a year</h1>
+    <h3 style="font-size: 25px;font-weight: bolder;text-align: center;color:yellow;font-family:serif;">Let's discuss your career, 24/7 free Consultation</h3>--> 
+  <!--   <img src="photo/5star.png" style="margin-left: 280px;">
+            <p style="text-align:center ;font-size: 15px;color:#fff">Google 4.9 * Rated Institute</p>--> 
+
+    <!--         <div style="background-color: rgb(53,15,169); margin: 50px auto; width: 1130px; height: 500px;">--> 
+             <!--     <div style="float: left; width: 400px; height: 400px; background-color:rgb(53,15,169); margin-left: 150px; margin-top: 50px;">
+                   <!--   <img src="contact.jpg" width="350" height="350" style="padding: 10px; margin: 25px;"> 
+                </div> -->
+                <div style=" width: 450px; height: 430px; background-color:rgb(53,15,169); margin-top: 50px;margin-left: 400px;border-radius:6px;">
+                <br>    <h1 align="center" style="color: #fff;">ContactUs</h1><br>
+                    <form style="margin-left: 10px;" th:action="@{/contact}" th:object="${con}" method="post">
+                        <label style="color:#fff;">Name:-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                        <input type="text" th:field="*{name}">
+                        <br>
+                        <br>
+                        <label style="color:#fff">Email:-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                        <input type="text" th:field="*{email}">
+                        <br>
+                        <br>
+                        <label style="color:#fff;">Subject:-&nbsp;&nbsp;</label>
+                        <input type="text" th:field="*{subject}">
+                        <br>
+                        <br>
+                        <label style="color:#fff">Message:-</label>
+                        <textarea rows="4" cols="40" th:field="*{message}"></textarea>
+                        <br>
+                        <br>
+                        <input type="submit"  value="Send Email">
+                    </form>
+                </div>
+            
+            
+            
+</body>
+</html>

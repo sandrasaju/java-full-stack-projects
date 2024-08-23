@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Form</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>	
+<body>
+<style>
+	 body {
+            background-color: darkblue;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .login-container {
+            width: 300px;
+            margin: 100px ;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+         input[type="submit"]:hover {
+            background-color: #45a049; 
+        }
+    </style>
+  <div class="container mt-5">
+    <h2 style="text-align:center;">Registration Form</h2><br>
+    <form th:action="@{/send}" th:object="${User}" >
+      <div class="row">
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="firstName" class="form-label" style="color:#fff;">First Name</label>
+            <input type="text" class="form-control" id="firstName" required th:field="*{firstname}">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="lastName" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="lastName" name="lastName" required th:field="*{lastname}">
+          </div>
+        </div>
+      </div>
+    
+      <div class="row">
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="gender" class="form-label">Gender</label>
+            <select class="form-select" id="gender" name="gender" required th:field="*{gender}">
+              <option value="">Select Gender</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="dob" class="form-label">Date of Birth</label>
+            <input type="date" class="form-control" id="dob" name="dob" required th:field="*{dateofbirth}">
+          </div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" name="email" required th:field="*{email}">
+      </div>
+      <div class="mb-3">
+        <label for="phoneNumber" class="form-label">Phone Number</label>
+        <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" required th:field="*{phonenumber}">
+      </div>
+      <div class="mb-3">
+        <label for="phoneNumber" class="form-label">Address</label>
+        <input type="tel" class="form-control" id="Address" name="Address" required th:field="*{Address}">
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="mb-3">
+           <label for="country" class="form-label">Country</label>
+          <select class="browser-default custom-select" name="country" id="countryid" th:field="*{country}">
+          <option value="0">Select a country</option>
+          <option th:each="country:${country}" th:text="${country.countryname}" th:value="${country.id}">
+          </option>
+          </select>
+          </div>
+          </div>
+          </div>
+          <div class="col-md-4">
+          <div class="mb-3">
+            <label for="state" class="form-label">State</label>
+            <select class="browser-default custom-select" name="state" id="state"th:field="*{state}">
+            <option value="0">Select a state</option>
+            </select>
+             </div>
+        </div>
+         <div class="row">
+        <div class="col-md-4">
+          <div class="mb-3">
+            <label for="city" class="form-label">City</label>
+            <select class="browser-default custom-select" name="city" id="city" th:field="*{city}">
+			<option value="0">Select a city</option>
+			</select>
+			</div>
+        </div>
+        </div>
+     <label class="form-label">Skills</label><br>
+        <div class="col-md-4">
+     <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="skill1" name="skills" value="css" th:field="*{skills}">
+          <label class="form-check-label" for="skill1">CSS</label>
+          
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="skill2" name="skills" value="sql" th:field="*{skills}">
+          <label class="form-check-label" for="skill2">SQL</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="skill3" name="skills" value="HTML" th:field="*{skills}">
+          <label class="form-check-label" for="skill33">HTML</label> <br>
+        </div>
+    </div>
+        <label class="form-label">Hobbies</label><br>
+           <div class="col-md-4">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="hobby1" name="hobbies" value="Reading" th:field="*{hobbies}">
+          <label class="form-check-label" for="hobby1">Reading</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="hobby2" name="hobbies" value="Sports" th:field="*{hobbies}">
+          <label class="form-check-label" for="hobby2">Sports</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="hobby3" name="hobbies" value="Gardening" th:field="*{hobbies}">
+          <label class="form-check-label" for="hobby3">Gardening</label><br>
+        </div>
+     </div>
+    
+      <button type="submit" class="btn " style="background-color:#fff; color:black;">Submit</button>
+    </form>
+  </div>
+
+ <script type="text/javascript">
+$(document).ready(function(){
+	$('#countryid').change(function(){
+		var countryid=$(this).val();
+		$.ajax({
+			url:'/states/'+countryid,
+			type:'GET',
+			success:function(data){
+				var stat=$("#state")
+				stat.empty();
+				$.each(data,function(index,state){
+					stat.append('<option value="'+state.stateid+'">'+state.statename+'</option>');
+				});
+			}
+		});
+	})
+});
+
+$(document).ready(function(){
+	$('#state').change(function(){
+		var stateid=$(this).val();
+		$.ajax({
+			url:'/cities/'+stateid,
+			type:'GET',
+			success:function(data){
+				var cat=$("#city")
+				cat.empty();
+				$.each(data,function(index,city){
+					cat.append('<option value="'+city.cityid+'">'+city.cityname+'</option>');
+				});
+			}
+		});
+	})
+});
+
+	</script>
+</body>
+</html>
+
